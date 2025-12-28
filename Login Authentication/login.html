@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro-Vault | Secure Terminal</title>
+    <link rel="stylesheet" href="vault-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="toast" class="toast"></div>
+    <div class="mesh-bg"></div>
+
+    <main class="vault-card">
+        <header>
+            <div class="status-indicator"></div>
+            <h2 id="main-title">VAULT ACCESS</h2>
+        </header>
+        
+        <div id="login-side">
+            <form onsubmit="handleLogin(event)">
+                <div class="input-container">
+                    <input type="text" id="l-user" placeholder=" " required autocomplete="off">
+                    <label>USER IDENTITY</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="l-pass" placeholder=" " required>
+                    <label>ACCESS KEY</label>
+                </div>
+                <button type="submit" class="btn btn-main">AUTHORIZE ACCESS</button>
+                <button type="button" onclick="handleDelete()" class="btn btn-danger">PURGE IDENTITY</button>
+            </form>
+            <p class="footer-link">UNREGISTERED? <span onclick="toggle()">CREATE PROFILE</span></p>
+        </div>
+
+        <div id="reg-side" class="hidden">
+            <form onsubmit="handleRegister(event)">
+                <div class="input-container">
+                    <input type="text" id="r-user" placeholder=" " required autocomplete="off">
+                    <label>NEW IDENTITY</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="r-pass" placeholder=" " required>
+                    <label>NEW ACCESS KEY</label>
+                </div>
+                <button type="submit" class="btn btn-reg">ENCRYPT & SAVE</button>
+            </form>
+            <p class="footer-link">SECURED? <span onclick="toggle()">RETURN TO TERMINAL</span></p>
+        </div>
+    </main>
+
+    <script src="vault-auth.js"></script>
+</body>
+</html>

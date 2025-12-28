@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inside the Vault</title>
+    <link rel="stylesheet" href="vault-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mesh-bg"></div>
+    <div class="vault-card" style="width: 85%; max-width: 500px;">
+        <div class="status-indicator"></div>
+        <h2>SECURED TERMINAL</h2>
+        <div class="data-box">
+            <p class="crypto-text">> DECRYPTING_CORE_FILES...</p>
+            <p class="welcome-msg">Welcome, <span id="user-display" style="color:var(--accent)">Operative</span>. Your session is active and encrypted.</p>
+        </div>
+        <button onclick="logout()" class="btn btn-danger" style="margin-top: 2rem;">TERMINATE SESSION</button>
+    </div>
+
+    <script>
+        // Route Guard
+        if (!sessionStorage.getItem('vault_token')) {
+            window.location.href = "login.html";
+        } else {
+            document.getElementById('user-display').innerText = atob(sessionStorage.getItem('vault_token'));
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
